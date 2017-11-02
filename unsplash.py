@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/Users/mio/miniconda2/bin/python
 # coding=utf-8
 # __author__ = 'Mio'
 

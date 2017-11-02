@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/Users/mio/miniconda2/bin/python
 # coding=utf8
 from __future__ import print_function
 
