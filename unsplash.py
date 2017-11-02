@@ -1,16 +1,18 @@
+#!/usr/bin/python
 # coding=utf-8
 # __author__ = 'Mio'
 
 import json
 from time import time
 from datetime import datetime
-from os.path import join, abspath, exists, expanduser
+from os.path import join, abspath, exists, expanduser, dirname
 from os import remove, listdir, makedirs
 
 import requests
 
+
 class Runner(object):
-    def __init__(self, config_path="./config.json"):
+    def __init__(self, config_path):
         self.config_path = config_path
         self.config = self.load_config()
 
@@ -37,7 +39,7 @@ class Runner(object):
                 config = json.load(f)
         except Exception as e:
             self.mprint("load config failed")
-            self.mprint(e, level="error")
+            self.mprint(e)
             raise e
         else:
             return config
@@ -47,8 +49,6 @@ class Runner(object):
         if "~" in self.config['wallpapers_folder']:
             self.config['wallpapers_folder'] = expanduser(self.config['wallpapers_folder'])
         return abspath(self.config['wallpapers_folder'])
-
-
 
     def remain_pics(self, num=50):
         exists_pictures = listdir(self.wallpapers_folder)
@@ -62,7 +62,7 @@ class Runner(object):
     def mprint(self, s):
         print("{}: {}".format(datetime.now(), s))
 
-    def find_file_name(url):
+    def find_file_name(self):
         return "{}.jpeg".format(int(time()))
 
     def get_new(self):
@@ -89,5 +89,6 @@ class Runner(object):
 if __name__ == '__main__':
     # remain_pics(REMAIN_PICS)
     # get_new(WALLPAPER_FOLDER)
-    r = Runner()
+    _config_path = join(dirname(abspath(__file__)), "config.json")
+    r = Runner(_config_path)
     r.do_run()

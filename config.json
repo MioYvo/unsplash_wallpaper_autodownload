@@ -5,8 +5,8 @@
     "remain_picture_number": 50,
     "download_interval": 100,
     "logs_path": {
-        "stdout": "",
-        "stderr": ""
+        "stdout": "./out.log",
+        "stderr": "./err.log"
     },
     "proxies": {
         "http": "socks5://127.0.0.1:1081",
