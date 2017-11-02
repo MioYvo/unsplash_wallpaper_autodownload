@@ -1,6 +1,6 @@
 {
     "label": "com.mio_unsplash.wallpaper.downloader",
-    "download_url": "https://source.unsplash.com/random/100x100",
+    "download_url": "https://source.unsplash.com/random/2560x1600",
     "wallpapers_folder": "~/Pictures/unsplash",
     "remain_picture_number": 50,
     "download_interval": 100,
